@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e6f7ff;
+      margin: 0;
+      padding: 50px;
+    }
+
+    .container {
+      max-width: 600px;
+      background-color: white;
+      margin: auto;
+      padding: 40px 50px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      color: #00bfff;
+    }
+
+    p {
+      font-size: 16px;
+      color: #444;
+    }
+
+    .actions a {
+      text-decoration: none;
+      padding: 12px 25px;
+      margin: 10px;
+      display: inline-block;
+      color: white;
+      background-color: #00bfff;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .actions a:hover {
+      background-color: #009fdc;
+      transform: scale(1.05);
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome, {{ username }}!</h2>
+    <p>You are logged in as <strong>{{ role }}</strong>.</p>
+
+    <div class="actions">
+      {% if role == 'admin' %}
+        <a href="/admin">Admin Panel</a>
+      {% endif %}
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <script>
+        Swal.fire({
+          title: 'Notice',
+          text: '{{ messages[0] }}',
+          icon: 'info',
+          timer: 3000,
+          showConfirmButton: false
+        });
+      </script>
+    {% endif %}
+  {% endwith %}
+</body>
+</html>

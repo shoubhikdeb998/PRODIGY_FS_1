@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Users</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e6f7ff;
+      padding: 50px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #00bfff;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #00bfff;
+      color: white;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: white;
+      background-color: #00bfff;
+      padding: 10px 20px;
+      border-radius: 6px;
+    }
+
+    a:hover {
+      background-color: #009fdc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>All Registered Users</h2>
+    <table>
+      <tr>
+        <th>Username</th>
+        <th>Hashed Password</th>
+      </tr>
+      {% for user in users %}
+      <tr>
+        <td>{{ user[0] }}</td>
+        <td>{{ user[1] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a href="/admin">← Back to Admin Panel</a>
+  </div>
+
+</body>
+</html>
