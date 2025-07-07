@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Authentication App</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #cbeeff, #e6f7ff);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #00bfff;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #00bfff;
+      color: white;
+      text-decoration: none;
+      padding: 12px 25px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #009fdc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the User Authentication System</h1>
+    <p>Please choose an option below to proceed.</p>
+    <a href="{{ url_for('register') }}" class="btn">Register</a>
+    <a href="{{ url_for('login') }}" class="btn">Login</a>
+    <a href="{{ url_for('dashboard') }}" class="btn">Dashboard</a>
+    <a href="{{ url_for('admin') }}" class="btn">Admin Panel</a>
+  </div>
+</body>
+</html>
